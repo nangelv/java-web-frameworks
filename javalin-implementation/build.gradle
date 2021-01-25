@@ -1,0 +1,32 @@
+group 'io.javalin' // your group id
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 15
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.javalin:javalin:3.13.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.12.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    compile "org.slf4j:slf4j-simple:1.7.30"
+
+    implementation("org.apache.httpcomponents:httpclient:4.5.6")
+
+    implementation("com.google.guava:guava:17.0")
+    implementation("org.apache.commons:commons-lang3:3.3.2")
+    implementation("commons-io:commons-io:2.4")
+}
