@@ -48,13 +48,7 @@ import org.magnum.dataup.model.Video;
 import org.magnum.dataup.model.VideoStatus;
 
 import retrofit.client.Response;
-import retrofit.http.Body;
-import retrofit.http.GET;
-import retrofit.http.Multipart;
-import retrofit.http.POST;
-import retrofit.http.Part;
-import retrofit.http.Path;
-import retrofit.http.Streaming;
+import retrofit.http.*;
 import retrofit.mime.TypedFile;
 
 /**
@@ -147,6 +141,7 @@ public interface VideoSvcApi {
 	 * @return
 	 */
 	@GET(VIDEO_SVC_PATH)
+	@Headers("Accept: */*")
 	public Collection<Video> getVideoList();
 	
 	/**
@@ -156,6 +151,7 @@ public interface VideoSvcApi {
 	 * @return
 	 */
 	@POST(VIDEO_SVC_PATH)
+	@Headers("Accept: */*")
 	public Video addVideo(@Body Video v);
 	
 	/**
@@ -170,6 +166,7 @@ public interface VideoSvcApi {
 	 */
 	@Multipart
 	@POST(VIDEO_DATA_PATH)
+	@Headers("Accept: */*")
 	public VideoStatus setVideoData(@Path(ID_PARAMETER) long id, @Part(DATA_PARAMETER) TypedFile videoData);
 	
 	/**
@@ -192,6 +189,7 @@ public interface VideoSvcApi {
 	 */
 	@Streaming
     @GET(VIDEO_DATA_PATH)
+	@Headers("Accept: */*")
     Response getData(@Path(ID_PARAMETER) long id);
 	
 }
